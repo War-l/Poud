@@ -1,0 +1,5 @@
+piper-tts==1.8.0
+pycairo>=1.25
+numpy>=1.26
+scipy>=1.11
+soundfile>=0.12

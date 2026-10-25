@@ -156,7 +156,7 @@ class Engine:
         self._linearize(src, fbo, (w, h))
         dst.build_mipmaps()
         dst.filter = (moderngl.LINEAR_MIPMAP_LINEAR, moderngl.LINEAR)
-        dst.anisotropy = 16.0
+        dst.anisotropy = 4.0
         dst.repeat_x = dst.repeat_y = False
         fbo.release()
         src.release()

@@ -311,7 +311,7 @@ class Garden(SetBase):
                         bloom_thresh=6.0, lift=(0.012, 0.014, 0.02), shadow_tint=(-0.006, 0.0, 0.012),
                         high_tint=(0.02, 0.012, -0.01), vignette=0.35, grain=0.018,
                         rays=dict(thresh=9.0, decay=0.968, density=0.95, weight=0.55))
-        return dict(exposure=0.9, wb=(0.98, 1.0, 1.08), sat=1.1, contrast=1.06, bloom=0.07, bloom_thresh=5.0,
+        return dict(exposure=1.25, wb=(0.98, 1.0, 1.08), sat=1.1, contrast=1.06, bloom=0.07, bloom_thresh=5.0,
                     lift=(0.02, 0.012, 0.02), shadow_tint=(0.0, -0.004, 0.018), high_tint=(0.03, 0.01, -0.02),
                     vignette=0.45, grain=0.02, rays=dict(thresh=5.0, decay=0.972, density=1.0, weight=0.8))
 

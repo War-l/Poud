@@ -3,3 +3,6 @@ video/build/
 __pycache__/
 justo/assets/voices/
 justo/build/
+estilo/*.mp4
+estilo/*.wav
+estilo/*.png

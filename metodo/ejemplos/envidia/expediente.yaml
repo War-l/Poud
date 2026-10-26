@@ -1,0 +1,97 @@
+# Expediente de enfoque: «La envidia». Prueba de la fase 1 con el ejemplo de la conversación.
+# Estado: enfoque (solo fase 1). Se verifica con: python3 -m metodo.verificar … --fase enfoque
+titulo: "La envidia: crecer o perjudicarse"
+estado: enfoque
+
+recepcion:
+  pedido: "Probar el método de enfoques específicos con el tema «la envidia» hasta un enfoque verificado."
+  origen: tema
+
+enfoque:
+  tema: La envidia
+  supuestos:
+    - "Partíamos de la intuición de que la envidia siempre perjudica a quien la siente; la verificación debía confirmarla o corregirla."
+    - "Riesgo de sesgo moral: juzgar la emoción antes de describir su mecanismo."
+  preguntas:
+    origen: "¿Por qué una persona empieza a envidiar a otra?"
+    significado: "¿Qué intenta conseguir una persona cuando desea lo que otro tiene?"
+    naturaleza: "¿Qué diferencia la envidia de la admiración?"
+    consecuencia: "¿Cómo transforma la envidia la percepción que una persona tiene de sí misma y de los demás?"
+  delimitacion:
+    dentro:
+      - "La comparación con una persona exitosa"
+      - "La interpretación del éxito ajeno (merecido o no, alcanzable o no)"
+      - "La respuesta: mejorar o perjudicar"
+      - "Las consecuencias sobre las propias metas y relaciones"
+    fuera:
+      - "Envidia en redes sociales como tema propio (solo como contraste)"
+      - "Celos de pareja (emoción distinta)"
+      - "Tratamiento clínico"
+  hallazgos:
+    - texto: "La comparación puede convertir el éxito ajeno en una amenaza personal y condicionar las decisiones propias."
+      peso: piedra_angular
+    - texto: "Compararse continuamente con otra persona es la causa inmediata."
+      peso: principal
+    - texto: "Interpretar el éxito ajeno como prueba de la propia inferioridad transforma la percepción."
+      peso: principal
+    - texto: "Desvalorizar los logros del otro distorsiona lo que uno cree que le falta."
+      peso: secundario
+    - texto: "Actuar para superar o perjudicar al otro puede ir contra los propios intereses."
+      peso: secundario
+  enfoques:
+    - id: A
+      texto: "Por qué nos comparamos con los demás."
+      criterios: {fundamento: 3, capacidad_explicativa: 2, contraste: 1, potencial_visual: 2, ensenanza_practica: 2}
+    - id: B
+      texto: "Cómo la envidia distorsiona nuestra percepción del éxito ajeno."
+      criterios: {fundamento: 3, capacidad_explicativa: 3, contraste: 2, potencial_visual: 3, ensenanza_practica: 3}
+    - id: C
+      texto: >-
+        Cómo el deseo de superar a otra persona, cuando nace de la envidia, puede llevarnos a tomar
+        decisiones que terminan perjudicándonos a nosotros mismos.
+      criterios: {fundamento: 3, capacidad_explicativa: 3, contraste: 3, potencial_visual: 3, ensenanza_practica: 3}
+  elegido: C
+  justificacion: >-
+    Permite una cadena completa de causa, transformación y consecuencia, y mostrar dos caminos
+    distintos a partir de una misma situación. B queda como alternativa si la investigación
+    señala la percepción como mecanismo central. (Valoración cualitativa: alto = 3, medio = 2,
+    bajo = 1.)
+  verificacion:
+    fuentes:
+      - referencia: >-
+          Lange, J. y Crusius, J. (2015). Dispositional envy revisited: Unraveling the motivational
+          dynamics of benign and malicious envy. Personality and Social Psychology Bulletin, 41(2),
+          284–294. doi:10.1177/0146167214564959
+        verificada: true
+        aporta: >-
+          Distingue envidia benigna (orientada a mejorar) y maliciosa (hostil). Las valoraciones de
+          control personal y de merecimiento coordinan sus componentes.
+        no_confirmado:
+          - "El dato «4 estudios con 1.094 participantes» citado en la conversación no se encontró en las fuentes consultadas."
+      - referencia: >-
+          van de Ven, N., Zeelenberg, M. y Pieters, R. (2012). Appraisal patterns of envy and
+          related emotions. Motivation and Emotion, 36(2), 195–204. doi:10.1007/s11031-011-9235-8
+        verificada: true
+        aporta: >-
+          Dos estudios: el merecimiento y el control percibidos no cambian la intensidad de la
+          envidia, pero sí su tipo. Lo inmerecido lleva a la maliciosa; lo merecido y controlable,
+          a la benigna.
+      - referencia: >-
+          Meier, A. y Johnson, B. K. (2022). Social comparison and envy on social media: A critical
+          review. Current Opinion in Psychology, 45, 101302.
+        verificada: true
+        aporta: >-
+          La relación entre comparación, envidia y bienestar no es uniforme: hay hallazgos
+          negativos y positivos, efectos que dependen de la persona y de las condiciones, y
+          limitaciones metodológicas en la evidencia.
+    contraejemplos:
+      - "La envidia benigna se asocia a la motivación de mejorar: no toda envidia lleva a perjudicarse."
+      - "Algunos estudios recientes encuentran relaciones positivas entre la comparación y el bienestar."
+    limitaciones:
+      - "La evidencia es psicológica y en gran parte de autoinforme; no establece una ley universal."
+      - "Los efectos dependen de la persona y de las circunstancias (revisión de 2022)."
+    veredicto: reformular
+    enfoque_final: >-
+      La envidia puede impulsarnos a crecer o llevarnos a actuar contra nuestros propios intereses:
+      qué hace que la comparación con alguien exitoso nos motive a mejorar o despierte el deseo de
+      perjudicarle (hipótesis a desarrollar: percibir el éxito ajeno como merecido y alcanzable).

@@ -1,0 +1,408 @@
+# Expediente de «La decisión»: prueba del método con el ejemplo de la conversación del usuario.
+# Estado: plan (fases 0–5 completas, Puerta A superada). El prototipo no se ha producido.
+titulo: La decisión
+estado: plan
+duracion_s: 40
+fps: 24
+resolucion: [1920, 1080]
+relacion_aspecto: "2.39:1"
+
+# ── Fase 0. Recepción e inspección ──────────────────────────────────────────────────────
+recepcion:
+  pedido: >-
+    Narrativa visual sin diálogos, de 30–40 s, que enseñe que las decisiones se demuestran con
+    acciones y no solo con palabras (guion «La decisión»).
+  origen: guion_usuario
+  inventario:
+    reutiliza:
+      - "estilo/estilo.py: cielo físico (Nishita), perspectiva atmosférica, capas en tiempo real, gradación LUT, codificación YUV en GPU (36 ms/fotograma a 1080p)"
+      - "estilo/estilo.py: viento por columnas, partículas, sonido de viento ligado a las ráfagas"
+    construye:
+      - "Personajes articulados en silueta iluminada: caminar, detenerse, agacharse, entregar, sonreír (gesto de cabeza)"
+      - "Lluvia fina a contraluz y acera mojada que refleja el cielo"
+      - "Naranjas con física de rodadura sencilla (posición analítica, sin simulación)"
+
+# ── Fase 1. Enfoque ─────────────────────────────────────────────────────────────────────
+enfoque:
+  guion: guion.md
+  tipo_obra: parabola
+  supuestos:
+    - "Suponemos que el público reconoce la situación (ayudar a alguien en la calle) sin explicación verbal."
+  afirmaciones: []          # parábola: no presenta datos ni citas como hechos
+  notas_fidelidad: >-
+    Los tiempos por escena se reparten dentro de la duración total indicada por el guion (30–40 s);
+    no cambian acciones ni mensaje. El único cambio de acción es el ajuste A1, pendiente de aprobación.
+  cambios_guion:
+    - ajuste: A1
+      descripcion: "Escena 4: «El hombre entrega la bolsa» → «El hombre entrega la última naranja»."
+      aprobado_usuario: false
+
+# ── Fase 2. Enseñanza ───────────────────────────────────────────────────────────────────
+ensenanza:
+  publico: "Público general, jóvenes y adultos"
+  idioma: "español neutro; sin diálogos, un solo rótulo final"
+  nivel: leche
+  objetivo: >-
+    El espectador podrá distinguir entre la intención de ayudar y la acción de ayudar en una
+    situación cotidiana.
+  idea_central: "Las decisiones se demuestran con acciones, no solamente con palabras."
+  pregunta_central: "¿Qué demuestra lo que de verdad decidimos: lo que pensamos o lo que hacemos?"
+  hilo_conductor: "La necesidad de la anciana y la respuesta del hombre: de pasar de largo a actuar."
+  concepto_central: accion
+  conceptos:
+    - id: necesidad
+      texto: "Alguien necesita ayuda"
+    - id: indiferencia
+      texto: "Seguir de largo es la opción cómoda"
+      requiere: [necesidad]
+    - id: decision
+      texto: "Detenerse es el momento de la decisión"
+      requiere: [necesidad, indiferencia]
+    - id: accion
+      texto: "La decisión se hace visible al actuar"
+      requiere: [decision]
+  omisiones:
+    aplicar: >-
+      Obra de 40 s sin diálogo: no hay espacio para trasladar la idea a otra situación sin romper
+      la parábola. La aplicación queda en manos del espectador mediante las preguntas de
+      comprobación que acompañan a la entrega.
+  simbolos:
+    - id: ultima_naranja
+      significa: "La necesidad del otro, que llega hasta nuestros pies y espera respuesta"
+      siembra: P2
+      cosecha: P7
+  comprobacion:
+    - pregunta: "¿En qué momento decide el hombre ayudar?"
+      respuesta: "Cuando deja de dudar y se agacha a recoger; antes solo mira y duda."
+      planos: [P5, P6]
+      canal: visual
+    - pregunta: "¿Qué habría cambiado para la anciana si él solo hubiera sentido lástima y hubiera seguido su camino?"
+      respuesta: "Nada: seguiría sin sus compras. La intención no la ayudó; la acción sí."
+      planos: [P6, P7]
+      canal: visual
+
+# ── Fase 3. Imaginar y crear ────────────────────────────────────────────────────────────
+creacion:
+  ideas:
+    - id: I1
+      texto: "Realismo gris de día lluvioso, cámara a la altura de los ojos, paleta desaturada"
+      criterios: {servicio_al_mensaje: 3, claridad: 3, belleza: 1, tiempo_real: 2, continuidad: 3}
+    - id: I2
+      texto: >-
+        Lluvia fina al final de la tarde con el sol bajo entre nubes: siluetas a contraluz, gotas
+        encendidas, acera mojada que refleja el cielo; la naranja es el único color saturado
+      criterios: {servicio_al_mensaje: 3, claridad: 3, belleza: 3, tiempo_real: 3, continuidad: 3}
+    - id: I3
+      texto: "Teatro de sombras: solo las sombras proyectadas de los personajes sobre la acera"
+      criterios: {servicio_al_mensaje: 2, claridad: 1, belleza: 3, tiempo_real: 3, continuidad: 2}
+  elegida: I2
+  justificacion: >-
+    Conserva la lluvia que pide el guion (escenas 1 y 4) y la hace legible: a contraluz las gotas
+    se ven sin tapar las acciones. Las siluetas simplifican los personajes (tiempo real) sin perder
+    la lectura de los gestos. La naranja como único acento de color guía la mirada al símbolo.
+    Parte del estilo ya probado en estilo/estilo.py.
+  estilo:
+    referencia: estilo/estilo.py
+    paleta: "cielo malva y ámbar tras la lluvia; acera azul pizarra con reflejos cálidos; naranja saturada como único acento"
+    luz: "sol bajo a la derecha del cuadro (lado A), contraluz parcial; cielo como luz de relleno fría"
+    tipografia: "rótulo final en serif clara, blanco cálido, centrado en el tercio inferior"
+    efectos:
+      - nombre: lluvia a contraluz
+        aporta: "establece la incomodidad que hace tentador seguir de largo, sin tapar las acciones"
+      - nombre: profundidad de campo en P2
+        aporta: "aísla los pies y la naranja: dirige la mirada al detalle que obliga a decidir"
+      - nombre: reflejos en la acera
+        aporta: "sitúa la lluvia y mantiene legibles las siluetas sobre un suelo claro"
+  coste:
+    ms_fotograma: 34          # estilo.py mide 36 ms con más capas; se estima 34 con menos nubes
+    precomputo_s: 3
+    audio_s: 2
+
+# ── Fase 5. Biblia visual ───────────────────────────────────────────────────────────────
+biblia:
+  personajes:
+    hombre:
+      rasgos: "unos 35 años, 1,80 m, delgado, pelo corto oscuro, paso constante"
+      vestuario:
+        v1: "chaqueta azul marino, pantalón gris oscuro, zapatillas blancas"
+      direccion_viaje: derecha      # en el lado A del eje
+    anciana:
+      rasgos: "unos 75 años, 1,58 m, levemente encorvada, pelo blanco recogido"
+      vestuario:
+        v1: "abrigo granate hasta la rodilla, pañuelo gris, zapatos negros"
+  lugares:
+    acera:
+      geografia: >-
+        Acera recta y mojada; fachadas al fondo (lado A), calzada fuera de cuadro tras la cámara.
+        El hombre avanza hacia el sol, que está a la derecha del cuadro.
+  objetos:
+    bolsa:
+      inicial: en_mano_anciana
+      transiciones:
+        - [en_mano_anciana, en_suelo, "se le cae de las manos"]
+        - [en_suelo, sostenida_anciana, "la anciana la levanta y la sostiene abierta"]
+        - [sostenida_anciana, en_mano_anciana, "la cierra al terminar"]
+    naranjas:
+      inicial: en_bolsa
+      transiciones:
+        - [en_bolsa, en_suelo, "ruedan al caer la bolsa"]
+        - [en_suelo, en_bolsa, "el hombre las recoge y las pone en la bolsa que ella sostiene"]
+    ultima_naranja:
+      inicial: en_bolsa
+      transiciones:
+        - [en_bolsa, en_suelo, "rueda al caer la bolsa"]
+        - [en_suelo, en_mano_hombre, "la recoge junto a su zapato"]
+        - [en_mano_hombre, en_bolsa, "se la entrega a la anciana, que la guarda"]
+  paletas:
+    atardecer_lluvia: ["#2b2436", "#6d5a7a", "#9aa7b8", "#e8a25c", "#f07f1e"]
+
+# ── Fase 4. Narrativa visual: escenas ───────────────────────────────────────────────────
+escenas:
+  - id: E1
+    titulo: Presentación
+    lugar: acera
+    momento: dia1_atardecer
+    personajes: [hombre, anciana]
+    vestuario: {hombre: v1, anciana: v1}
+    eje: [hombre, anciana]
+    luz: {hora: atardecer, clima: lluvia fina, clave: contraluz_derecha}
+    paleta: atardecer_lluvia
+    funcion: "Presentar al hombre de paso y el accidente: plantear el problema."
+    conecta: "Crea la necesidad que el resto de la obra responde."
+    transicion: {tipo: fundido_desde_negro, puente: "la lluvia se oye un segundo antes de ver la imagen"}
+  - id: E2
+    titulo: Conflicto
+    lugar: acera
+    momento: dia1_atardecer
+    personajes: [hombre, anciana]
+    vestuario: {hombre: v1, anciana: v1}
+    eje: [hombre, anciana]
+    luz: {hora: atardecer, clima: lluvia fina, clave: contraluz_derecha}
+    paleta: atardecer_lluvia
+    funcion: "La necesidad alcanza al hombre: tiene que elegir."
+    conecta: "La naranja une la necesidad de ella con el camino de él."
+    transicion: {tipo: corte, puente: "raccord de movimiento: los pasos continúan en el sonido y en el plano"}
+  - id: E3
+    titulo: Decisión
+    lugar: acera
+    momento: dia1_atardecer
+    personajes: [hombre, anciana]
+    vestuario: {hombre: v1, anciana: v1}
+    eje: [hombre, anciana]
+    luz: {hora: atardecer, clima: lluvia fina, clave: contraluz_derecha}
+    paleta: atardecer_lluvia
+    funcion: "La duda se resuelve en acción."
+    conecta: "Es el centro del hilo: de mirar a actuar."
+    transicion: {tipo: corte, puente: "la mirada de ella hacia él da paso al rostro de él"}
+  - id: E4
+    titulo: Desenlace
+    lugar: acera
+    momento: dia1_atardecer
+    personajes: [hombre, anciana]
+    vestuario: {hombre: v1, anciana: v1}
+    eje: [hombre, anciana]
+    luz: {hora: atardecer, clima: lluvia fina, clave: contraluz_derecha}
+    paleta: atardecer_lluvia
+    funcion: "Mostrar el fruto de la decisión y cerrar."
+    conecta: "La última naranja vuelve a la bolsa: la necesidad quedó respondida."
+    transicion: {tipo: corte, puente: "raccord de acción: la mano con la última naranja"}
+
+# ── Fase 4. Narrativa visual: planos ────────────────────────────────────────────────────
+planos:
+  - id: P1
+    escena: E1
+    inicio: 0.0
+    duracion: 6.0
+    tamano: PG
+    camara: {lado: A, angulo: normal, focal_mm: 35, movimiento: "paneo lento a la derecha siguiendo al hombre"}
+    muestra: >-
+      El hombre entra por la izquierda caminando bajo la lluvia fina hacia el sol. Más adelante, a
+      la anciana se le cae la bolsa y las naranjas ruedan por la acera hacia él.
+    funcion_narrativa: "Presenta al hombre de paso y el accidente de la anciana."
+    funcion_didactica: [captar, contexto]
+    introduce: [necesidad]
+    canal: visual
+    composicion: {regla: tercios, principal: anciana, secundarios: [hombre, naranjas]}
+    excluye: "La calzada y el tráfico: nada compite con el accidente."
+    sujetos:
+      hombre: {x: 0.20, mira: derecha, mueve: derecha}
+      anciana: {x: 0.68, y: 0.62, mira: abajo, mueve: quieto}
+      naranjas: {x: 0.60, mueve: "hacia:hombre"}
+    objetos: {bolsa: en_mano_anciana, naranjas: en_bolsa}
+    eventos:
+      - {t: 3.5, objeto: bolsa, a: en_suelo, causa: "se le cae de las manos"}
+      - {t: 3.6, objeto: naranjas, a: en_suelo, causa: "ruedan"}
+      - {t: 3.6, objeto: ultima_naranja, a: en_suelo, causa: "rueda la más lejos"}
+    sonido: "Lluvia fina y pasos sobre mojado; golpe sordo de la bolsa y naranjas rodando. Sin música."
+
+  - id: P2
+    escena: E2
+    inicio: 6.0
+    duracion: 4.0
+    tamano: PD
+    camara: {lado: A, angulo: bajo, focal_mm: 85, movimiento: fijo}
+    muestra: >-
+      Las zapatillas blancas siguen caminando hacia la derecha; una naranja entra rodando desde la
+      derecha y se detiene contra un zapato. Los pies se detienen.
+    funcion_narrativa: "La necesidad alcanza al hombre y le detiene."
+    funcion_didactica: [explicar]
+    introduce: [indiferencia]
+    canal: visual
+    composicion: {regla: tercios, principal: ultima_naranja, secundarios: [hombre]}
+    excluye: "Todo lo que no sea los pies y la naranja: el mundo se reduce a la decisión."
+    sujetos:
+      hombre: {x: 0.30, mueve: derecha}
+      ultima_naranja: {x: 0.36, y: 0.70, mueve: "hacia:hombre"}
+    objetos: {ultima_naranja: en_suelo}
+    sonido: "Pasos que se detienen; la naranja rueda y toca el zapato; la lluvia ocupa el silencio."
+
+  - id: P3
+    escena: E2
+    inicio: 10.0
+    duracion: 2.5
+    tamano: PM
+    camara: {lado: A, angulo: normal, focal_mm: 50, movimiento: fijo}
+    muestra: "El hombre levanta la vista de la naranja y mira a la anciana."
+    funcion_narrativa: "Ve la necesidad."
+    funcion_didactica: [explicar]
+    canal: visual
+    composicion: {regla: tercios, principal: hombre}
+    excluye: "La anciana queda fuera: vemos lo que él ve en el plano siguiente."
+    sujetos:
+      hombre: {x: 0.36, y: 0.34, mira: derecha, mira_a: anciana, mueve: quieto}
+    sonido: "Lluvia; un claxon lejano."
+
+  - id: P4
+    escena: E2
+    inicio: 12.5
+    duracion: 3.0
+    tamano: PM
+    camara: {lado: A, angulo: normal, focal_mm: 50, movimiento: fijo}
+    muestra: "La anciana se agacha con dificultad, levanta la bolsa y la sostiene abierta; mira hacia él."
+    funcion_narrativa: "Ella sola no puede."
+    funcion_didactica: [contexto]
+    canal: visual
+    composicion: {regla: tercios, principal: anciana}
+    excluye: "Las naranjas lejanas: el foco es su esfuerzo."
+    sujetos:
+      anciana: {x: 0.64, y: 0.36, mira: izquierda, mira_a: hombre}
+    objetos: {bolsa: en_suelo, naranjas: en_suelo}
+    eventos:
+      - {t: 2.0, objeto: bolsa, a: sostenida_anciana, causa: "la levanta y la sostiene abierta"}
+    sonido: "Respiración contenida de ella; la lluvia sobre la bolsa de papel."
+
+  - id: P5
+    escena: E3
+    inicio: 15.5
+    duracion: 2.5
+    tamano: PP
+    camara: {lado: A, angulo: normal, focal_mm: 85, movimiento: "acercamiento muy lento"}
+    muestra: "Rostro del hombre: duda un instante, mira la naranja a sus pies."
+    funcion_narrativa: "La duda: seguir o detenerse."
+    funcion_didactica: [preguntar]
+    introduce: [decision]
+    canal: visual
+    composicion: {regla: tercios, principal: hombre}
+    excluye: "Todo lo demás: el espectador queda a solas con la duda."
+    sujetos:
+      hombre: {x: 0.36, y: 0.36, mira: abajo}
+    sonido: "La lluvia baja; entra una nota sostenida de piano."
+
+  - id: P6
+    escena: E3
+    inicio: 18.0
+    duracion: 7.0
+    tamano: PE
+    camara: {lado: A, angulo: normal, focal_mm: 35, movimiento: fijo}
+    muestra: >-
+      Él se agacha y recoge las naranjas; ella sostiene la bolsa abierta y él las va metiendo.
+      Al final recoge la última naranja, la que llegó a su zapato.
+    funcion_narrativa: "La decisión se vuelve acción."
+    funcion_didactica: [demostrar]
+    introduce: [accion]
+    canal: visual
+    composicion: {regla: tercios, principal: hombre, secundarios: [anciana, naranjas]}
+    excluye: "Los transeúntes: la acción es de los dos."
+    sujetos:
+      hombre: {x: 0.40, y: 0.62, mira: abajo, mueve: quieto}
+      anciana: {x: 0.62, mira: abajo}
+    objetos: {bolsa: sostenida_anciana, naranjas: en_suelo, ultima_naranja: en_suelo}
+    eventos:
+      - {t: 4.0, objeto: naranjas, a: en_bolsa, causa: "las recoge y las mete en la bolsa"}
+      - {t: 6.0, objeto: ultima_naranja, a: en_mano_hombre, causa: "recoge la última"}
+    sonido: "Naranjas en la bolsa de papel; el piano crece con cuerdas suaves."
+
+  - id: P7
+    escena: E4
+    inicio: 25.0
+    duracion: 5.0
+    tamano: PMC
+    camara: {lado: A, angulo: normal, focal_mm: 50, movimiento: fijo}
+    muestra: >-
+      Él entrega la última naranja; ella la guarda, cierra la bolsa, sonríe y asiente. Él responde
+      con una sonrisa discreta y sigue su camino pasando por delante de ella.
+    funcion_narrativa: "El fruto de la decisión."
+    funcion_didactica: [demostrar]
+    canal: visual
+    composicion: {regla: centrada, principal: ultima_naranja, secundarios: [hombre, anciana]}
+    excluye: "El fondo, desenfocado: solo el gesto de entregar."
+    sujetos:
+      hombre: {x: 0.36, mira: derecha, mira_a: anciana, mueve: derecha}
+      anciana: {x: 0.64, mira: izquierda, mira_a: hombre}
+      ultima_naranja: {x: 0.50, y: 0.55}
+    objetos: {bolsa: sostenida_anciana, ultima_naranja: en_mano_hombre}
+    eventos:
+      - {t: 1.2, objeto: ultima_naranja, a: en_bolsa, causa: "se la entrega y ella la guarda"}
+      - {t: 2.0, objeto: bolsa, a: en_mano_anciana, causa: "cierra la bolsa"}
+    cruce: {quien: hombre, motivo: "pasa por delante de la anciana a la vista y sigue hacia la derecha"}
+    sonido: "Un «gracias» sin palabras: solo el piano; la lluvia vuelve."
+
+  - id: P8
+    escena: E4
+    inicio: 30.0
+    duracion: 10.0
+    tamano: PG
+    camara: {lado: A, angulo: normal, focal_mm: 35, movimiento: fijo}
+    muestra: >-
+      La anciana, con la bolsa en la mano, observa al hombre alejarse hacia el sol bajo la lluvia
+      encendida. A los 4 s aparece el rótulo final.
+    funcion_narrativa: "Cierre: la mirada de quien recibió la ayuda."
+    funcion_didactica: [cerrar]
+    canal: texto
+    composicion: {regla: tercios, principal: anciana, secundarios: [hombre]}
+    excluye: "El rostro del hombre: ya no importa quién es, sino lo que hizo."
+    sujetos:
+      anciana: {x: 0.34, y: 0.62, mira: derecha, mira_a: hombre}
+      hombre: {x: 0.82, mueve: derecha}
+    objetos: {bolsa: en_mano_anciana}
+    texto_pantalla: {texto: "Las decisiones se demuestran con acciones, no solamente con palabras.", desde: 4.0}
+    sonido: "Lluvia y piano que resuelve; fundido a negro con el último acorde."
+
+# ── Fase 6. Prototipo ───────────────────────────────────────────────────────────────────
+prototipo:
+  estado: pendiente
+
+# ── Fase 8. Ajustes ─────────────────────────────────────────────────────────────────────
+ajustes:
+  - id: A1
+    fase: plan
+    problema: >-
+      Incoherencia de objeto en el guion: en la escena 3 la anciana sostiene la bolsa mientras
+      recogen, y en la escena 4 «el hombre entrega la bolsa» sin que la bolsa haya pasado nunca a
+      sus manos (CON-07).
+    causa: "El guion no prevé la acción que llevaría la bolsa de las manos de ella a las de él."
+    cambio: >-
+      Corrección mínima: en la escena 4 el hombre entrega la última naranja (la que rodó hasta su
+      zapato) y ella la guarda. Mantiene el gesto de entregar y no añade acciones. Además convierte
+      esa naranja en el símbolo de la obra (siembra en P2, cosecha en P7). Se propone al usuario.
+    verificado: true
+    evidencia: >-
+      verificar --fase plan: 0 errores. La prueba test_guion_literal_detecta_la_bolsa reproduce
+      el guion literal y comprueba que CON-07 lo detecta.
+  - id: A2
+    fase: plan
+    problema: "El rótulo final (69 caracteres) entraba a los 5 s de P8 y solo tenía 5,0 s; necesita 5,6 s para leerse (NAR-07)."
+    causa: "Error de cálculo al repartir P8 entre la imagen sola y el rótulo."
+    cambio: "El rótulo entra a los 4 s: dispone de 6,0 s. La anciana sigue sola en cuadro 4 s antes del texto."
+    verificado: true
+    evidencia: "verificar --fase plan: NAR-07 ya no aparece."

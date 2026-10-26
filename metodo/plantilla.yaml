@@ -1,0 +1,147 @@
+# Plantilla de expediente. Cópiala a <carpeta del vídeo>/expediente.yaml y rellénala por fases.
+# Ejemplo completo: metodo/ejemplos/la_decision/expediente.yaml
+# Verificación:     python3 -m metodo.verificar <expediente> --fase {enfoque|plan|produccion|final}
+titulo: ""
+estado: plan                   # enfoque | plan | prototipo | produccion | final
+duracion_s: 0                  # duración total; los planos deben sumarla exactamente
+fps: 24
+resolucion: [1920, 1080]
+relacion_aspecto: "2.39:1"
+
+# ── Fase 0. Recepción e inspección ──────────────────────────────────────────────────────
+recepcion:
+  pedido: ""                   # qué se pide, con las palabras del usuario
+  origen: guion_usuario        # guion_usuario | tema
+  inventario:                  # inspección previa: qué existe y qué falta
+    reutiliza: []
+    construye: []
+
+# ── Fase 1. Enfoque ─────────────────────────────────────────────────────────────────────
+enfoque:
+  supuestos: []                # sesgos o supuestos propios, declarados antes de investigar
+  # Si origen = guion_usuario:
+  guion: guion.md              # guion íntegro, ruta relativa a este archivo
+  tipo_obra: parabola          # parabola | documental | explicativo | testimonio
+  afirmaciones: []             # datos o citas presentados como hechos:
+  #  - texto: ""
+  #    tipo: hecho             # hecho | ficcion | opinion
+  #    fuentes: [{referencia: "", verificada: true, aporta: ""}, …]   # ≥ 2 si es un hecho
+  cambios_guion: []            # todo cambio al guion: [{ajuste: A1, descripcion: "", aprobado_usuario: false}]
+  # Si origen = tema:
+  # tema: ""
+  # preguntas: {origen: "¿…?", significado: "¿…?", naturaleza: "¿…?", consecuencia: "¿…?"}
+  # delimitacion: {dentro: [], fuera: []}
+  # hallazgos: [{texto: "", peso: piedra_angular}, {texto: "", peso: principal}, {texto: "", peso: secundario}]
+  # enfoques:                  # ≥ 3, todos con los mismos criterios
+  #   - {id: A, texto: "", criterios: {fundamento: 0, capacidad_explicativa: 0, contraste: 0, potencial_visual: 0, ensenanza_practica: 0}}
+  # elegido: A
+  # justificacion: ""
+  # verificacion:
+  #   fuentes: [{referencia: "", verificada: true, aporta: "", no_confirmado: []}]   # ≥ 2 independientes
+  #   contraejemplos: []
+  #   limitaciones: []
+  #   veredicto: aprobar       # aprobar | reformular | descartar
+  #   enfoque_final: ""        # obligatorio si se reformula
+
+# ── Fase 2. Enseñanza ───────────────────────────────────────────────────────────────────
+ensenanza:
+  publico: ""
+  idioma: ""                   # idioma y variante del oyente
+  nivel: leche                 # leche | alimento_solido
+  objetivo: "El espectador podrá "    # + verbo observable (distinguir, explicar, aplicar, decidir…)
+  idea_central: ""             # una oración, ≤ 30 palabras
+  pregunta_central: "¿…?"      # la pregunta que la obra hace al espectador
+  hilo_conductor: ""
+  concepto_central: ""         # id del concepto que la obra demuestra visualmente
+  conceptos: []                # [{id: x, texto: "", requiere: [otros ids]}]
+  omisiones: {}                # función didáctica omitida → motivo
+  simbolos: []                 # [{id: x, significa: "", siembra: P1, cosecha: P5}]
+  comprobacion: []             # ≥ 2: [{pregunta: "¿…?", respuesta: "", planos: [P3], canal: visual}]
+
+# ── Fase 3. Imaginar y crear ────────────────────────────────────────────────────────────
+creacion:
+  ideas: []                    # ≥ 3, mismos criterios: [{id: I1, texto: "", criterios: {servicio_al_mensaje: 0, claridad: 0, belleza: 0, tiempo_real: 0, continuidad: 0}}]
+  elegida: I1
+  justificacion: ""
+  estilo:
+    referencia: estilo/estilo.py
+    paleta: ""
+    luz: ""                    # el fenómeno de luz real que se imita
+    tipografia: ""
+    efectos: []                # [{nombre: "", aporta: "qué aporta al mensaje"}]: sin «aporta», se elimina
+  coste:                       # coste estimado del render; debe ser ≤ la duración (máximo 1,1×)
+    ms_fotograma: 0
+    precomputo_s: 0
+    audio_s: 0
+
+# ── Fase 5. Biblia visual ───────────────────────────────────────────────────────────────
+biblia:
+  personajes: {}               # id: {rasgos: "", vestuario: {v1: ""}, direccion_viaje: derecha}
+  lugares: {}                  # id: {geografia: ""}
+  objetos: {}                  # id: {inicial: estado, transiciones: [[de, a, "causa"], …]}
+  paletas: {}                  # id: ["#rrggbb", …]
+
+# ── Fase 4. Escenas ─────────────────────────────────────────────────────────────────────
+# Dos escenas con el mismo lugar y momento son continuas: se exige continuidad entre ellas.
+escenas: []
+#  - id: E1
+#    titulo: ""
+#    lugar: acera                # clave de biblia.lugares
+#    momento: dia1_tarde
+#    personajes: [a, b]
+#    vestuario: {a: v1, b: v1}
+#    eje: [a, b]                 # eje de acción: en el lado A de la cámara, «a» queda a la izquierda
+#    luz: {hora: "", clima: "", clave: ""}
+#    paleta: id
+#    funcion: ""
+#    conecta: ""                 # relación con el hilo conductor
+#    transicion: {tipo: corte, puente: ""}   # puente obligatorio salvo en la primera escena
+#    cambios_fuera_de_campo: []  # solo en saltos de tiempo: [{objeto, a, motivo}]
+#    cambio_vestuario: ""        # motivo, si cambia respecto a una escena continua
+#    cambio_luz: ""
+
+# ── Fase 4. Planos ──────────────────────────────────────────────────────────────────────
+planos: []
+#  - id: P1
+#    escena: E1
+#    inicio: 0.0                 # múltiplo de 1/fps
+#    duracion: 4.0
+#    tamano: PG                  # GPG PG PE PA PM PMC PP PPP PD
+#    camara: {lado: A, angulo: normal, focal_mm: 35, movimiento: fijo, cruce_eje: ""}
+#    muestra: ""                 # lo que ve el espectador
+#    funcion_narrativa: ""
+#    funcion_didactica: [captar] # captar contexto explicar demostrar preguntar aplicar cerrar
+#    introduce: []               # conceptos que aparecen aquí por primera vez
+#    canal: visual               # visual | dialogo | texto | narracion
+#    composicion: {regla: tercios, principal: a, secundarios: []}   # tercios | centrada | simetrica | libre (+ motivo)
+#    excluye: ""                 # qué se deja fuera del cuadro y por qué
+#    sujetos:                    # x, y en [0, 1] en el momento clave del plano
+#      a: {x: 0.33, y: 0.4, mira: derecha, mira_a: b, mueve: derecha, cambio_direccion: ""}
+#    objetos: {}                 # estado de los objetos visibles al empezar el plano
+#    eventos: []                 # [{t: 1.0, objeto: x, a: estado, de: estado, causa: ""}] (t relativo al plano)
+#    cruce: {quien: a, motivo: ""}   # un personaje cruza a otro a la vista: cambia el orden en pantalla
+#    dialogo: []                 # [{quien: a, texto: ""}]
+#    texto_pantalla: {texto: "", desde: 0}
+#    sonido: ""
+#    entrada: corte              # transición con el plano anterior dentro de la escena
+#    cambio_luz: ""
+#    salto_intencional: ""       # para permitir un corte en salto deliberado
+
+# ── Fase 6. Prototipo ───────────────────────────────────────────────────────────────────
+prototipo:
+  estado: pendiente            # pendiente | enviado | aprobado | omitido_por_usuario
+  ms_fotograma_medido: null    # medido en un plano real con el motor
+  evidencia: ""                # ruta del storyboard o de la hoja de planos
+  cita: ""                     # si se omite: palabras del usuario que lo piden
+
+# ── Fase 8. Ajustes ─────────────────────────────────────────────────────────────────────
+ajustes: []
+#  - {id: A1, fase: plan, problema: "", causa: "", cambio: "", verificado: true, evidencia: ""}
+
+# ── Fase 9. Entrega ─────────────────────────────────────────────────────────────────────
+entrega:
+  archivo: ""
+  render_s: null               # medido de principio a fin con time
+  revision: revision/revision.json   # salida de python3 -m metodo.revisar
+  veredictos: {}               # "P3>P4": "veredicto con sus dos testigos"
+  revision_manual: {}          # REV-01 … REV-09: respuesta con evidencia
